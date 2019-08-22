@@ -1,0 +1,141 @@
+page-favouritejobrequest {
+    .scroll-content{
+        padding:0px !important;    
+        // margin-top: 98px !important;
+
+    }
+  
+   
+    .segment-toolbar .toolbar-background-md {
+        background: #C3005E;
+        // background: -webkit-gradient(linear, left top, right top, from(#310068), to(#fe005a));
+        // background: linear-gradient(left, #310068, #fe005a);
+    }
+    .filters {
+
+        ion-col {
+            text-align: center;
+            font-size: 1.2rem !important;
+            line-height: 1.6rem;
+
+            ion-icon {
+                color: #ccc;
+            }
+
+            &.col-with-arrow {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        p {
+            
+            color: #fff;
+            margin: 0;
+            font-size: 1.2rem;
+            line-height: 1.6rem;
+        }
+
+        .swiper-slide-active {
+            border-bottom: 2px solid white;
+    margin-bottom: 29px;
+
+        }
+    }
+
+
+
+
+
+
+
+
+
+    /*card*/
+
+    .job-card-con{
+        margin: 5px;
+        width: calc(100% - 10px);
+    }
+    .img-sub-size{
+        //width: 17px;
+        margin-top: 5px;
+        display: inline;
+        vertical-align: bottom;
+        margin-left: 1px;
+        
+    //color: #d84d7f;
+    }
+    .rating-sec > ul {
+        padding: 0px;
+        margin: 0px;
+        &.rating li {
+          padding: 0px !important;
+          background: none;
+          color: #d84d7f;
+      
+          ion-icon {
+            font-size: 17px;
+          }
+        }
+      }
+      .avatar-top{
+        margin: 16px 16px 8px 0 !important;
+        margin-bottom: auto !important;
+      }
+      ion-avatar img{
+        width: 50px !important;
+        height: 50px !important;
+      }
+      .req-type-color{
+          color:#2AA03F;
+      }
+      .job-card-con .label-md {
+        margin: 5px 8px 5px 0;
+    }
+    .action-con{
+        border-top: 1px solid #e8e8e8;
+    }
+    .action-con-inner{
+       padding: 0;
+    }
+    .action-btn{
+        background: transparent;
+        color: #f5005b;
+    }
+    .sub-header-title{
+        font-weight: 500;
+        font-size: 14px;
+        color: #55555f;
+      }
+      .verified-img{
+    
+        height: 20px !important;
+        width: 20px !important;
+        margin-left: 15px;
+        margin-top: 5px;
+    }
+    .card-job-item-name{
+        background: #fe005a;
+        text-align: center;
+        padding: 0px 3px 3px 3px;
+        color: white;
+    }
+    .card-job-item-con{
+        padding: 0px 5px 0px 5px;
+    }
+    .card-name-geneder-icon{
+        width: 13px;
+        display: inline;
+    }
+    .img-sub-size{
+        width: 15px;
+        margin-top: 5px;
+        display: inline;
+        vertical-align: bottom;
+       
+    }
+  
+      /***********************************/
+}

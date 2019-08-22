@@ -1,0 +1,76 @@
+<!--
+  Generated template for the SerchjobsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+
+  <ion-navbar>
+    <ion-title>serchjobs</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+</ion-content> -->
+
+
+
+<ion-header class="customheader">
+  <ion-navbar >
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{labelList.label111}}</ion-title>
+    <!-- <ion-buttons end>
+        <button ion-button icon-only>
+          <ion-icon name="search"></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-buttons end>
+          <button ion-button icon-only>
+            <ion-icon name="more"></ion-icon>
+          </button>
+        </ion-buttons> -->
+  </ion-navbar>
+  <ion-toolbar class="segment-toolbar">
+    <ion-row class="filters">
+      <ion-col no-padding col-12>
+        <ion-slides (ionSlideDidChange)="slideChanged()" slidesPerView="3">
+          <ion-slide (click)="filterDataBySelectedCategory(category.JobCategoryId,category.CategoryName)" *ngFor="let category of categories">
+            <p class="para-overflow-hidden" [class.selected]="selectedCategory?.JobCategoryId === category.JobCategoryId" style="text-transform: uppercase;">{{
+              category.CategoryName }}</p>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <div class="background-img">
+   <p style="margin: 0px;text-transform: uppercase;">{{jobtitle}}</p>
+  </div>
+  <div>
+    <ion-item>
+      <ion-label>{{labelList.label46}}</ion-label>
+    </ion-item>
+    <ion-grid>
+      <ion-row *ngIf="selectedJobByCategoryId.length > 0">
+        <ion-col col-6 (click)="gotoSelectedCategory(job.JobId)" *ngFor="let job of selectedJobByCategoryId">
+          <ion-card class="job-card">
+            <img [src]="job.IconImage" style="height: 115px;"/>
+            <div class="card-title">{{job.JobName}}</div>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="!isAvailable && (categories.length == 0 || selectedJobByCategoryId.length == 0)">
+          <ion-col col-12>
+            <p class="not-available">{{labelList.label47}}!</p>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

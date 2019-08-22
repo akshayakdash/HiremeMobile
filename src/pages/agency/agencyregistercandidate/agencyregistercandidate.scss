@@ -1,0 +1,69 @@
+page-agencyregistercandidate {
+    .scroll-content {
+       padding: 5px !important;
+      }
+    .register-logo-container{
+        text-align: center;
+        padding: 15px 80px 10px 80px;
+      }
+      .register-label-text{
+        text-transform: uppercase;
+        font-size: 15px;
+        background: #dfdfdf;
+        width: 100%;
+        margin: 0 !important;
+        padding: 5px;
+       // margin: 0px 35px 0px 5px !important;
+      }
+  
+    
+      .register-btn-con{
+        margin-top: 10px;
+      }
+     
+      .bottom-con{
+        margin-top: 10px;
+      }
+      .item-md {
+         padding-left: 0px; 
+   
+       
+    }
+    .item-select .label-md {
+        margin: 13px 8px 13px 10px;
+    }
+ .register-form{
+    padding: 5px;
+    background: white;
+ }
+ .label {
+  margin: 13px 9px 13px 7px !important;
+  font-size: 13px !important;
+}
+.checkbox-icon{
+  width: 20px !important;
+  height: 20px !important;
+
+  .checkbox-inner{
+    left: 6px !important;
+    top: 2px !important;
+  }
+
+}
+ion-checkbox{
+  margin: 0px !important;
+}
+ion-input{
+  font-size: 13px !important;
+}
+.slide-zoom{
+  margin-top: 0px !important;
+  position: absolute !important;
+  top: 0px !important;
+}
+.back-style{
+  color: #f5005d;
+  text-align: left;
+  margin-left: 10px;
+}
+}

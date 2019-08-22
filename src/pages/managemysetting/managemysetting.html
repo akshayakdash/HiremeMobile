@@ -1,0 +1,175 @@
+<!--
+  Generated template for the ManagemysettingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{labelList.pagetitle6}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card class="job-card-con">
+    <ion-item class="">
+      <ion-avatar item-start class="avatar-top" *ngIf="userDetails.ProfileVerified">
+        <img class="img-size" #myImage (click)="presentImage(myImage)" *ngIf="userDetails.profile_pic_base64 != '' && userDetails.profile_pic_base64 != null"
+          src="{{userDetails.profile_pic_base64}}" />
+        <img class="img-size" *ngIf="userDetails.profile_pic_base64 == '' || userDetails.profile_pic_base64 == null" src="assets/imgs/maledefault.svg"
+        />
+      
+      </ion-avatar>
+      <ion-avatar item-start class="avatar-top"  *ngIf="!userDetails.ProfileVerified">
+          <img class="img-size" #myImage (click)="presentImage(myImage)" *ngIf="userDetails.profile_pic_base64 != '' && userDetails.profile_pic_base64 != null"
+            src="{{userDetails.profile_pic_base64}}" />
+          <img class="img-size" *ngIf="userDetails.profile_pic_base64 == '' || userDetails.profile_pic_base64 == null" src="assets/imgs/maledefault.svg"
+          />
+          <p (click)="uploadImage(0)" style="margin: 3px 0px 5px 0px;text-align: center;font-size: 12px;color: #ffffff;background: #f65f6e;padding: 5px;">{{labelList.label30}}</p>
+        </ion-avatar>
+      <div class="card">
+        <h4 class="para-overflow-hidden margin-bottom-5">
+          <span class="margin-right-10 font-weight-500 font-size-13 " *ngIf="!userDetails.FirstName && !userDetails.LastName">
+            {{userDetails.FirstName}} {{userDetails.LastName}}</span>
+        </h4>
+        <h4 class="para-overflow-hidden margin-bottom-5">
+          <span class="margin-right-10 font-weight-500 font-size-13 " *ngIf="userDetails.Email"> {{userDetails.Email}}</span>
+        </h4>
+        <h4 class="para-overflow-hidden margin-bottom-5">
+          <span class="margin-right-10 font-weight-500 font-size-13 "> {{userDetails.PhoneNumber}}</span>
+        </h4>
+        <h4 class="para-overflow-hidden margin-bottom-5">
+          <span class="margin-right-10 font-weight-500 font-size-13 " style="color: #14c51b;" *ngIf="userDetails.ProfileVerified">{{labelList.label83}}</span>
+          <span class="margin-right-10 font-weight-500 font-size-13 " style="color: #c52014;" *ngIf="!userDetails.ProfileVerified">{{labelList.label84}}</span>
+        </h4>
+      </div>
+
+      <!-- <p class="para-overflow-hidden">
+              <span class="margin-right-10">
+                Age: {{item.Age}} {{labelList.label164}}
+              </span>
+              <span class="">
+                Exp: {{item.Experience}} {{labelList.label164}}
+              </span>
+            </p> -->
+      <!-- <p class="para-overflow-hidden">
+              <span>
+                <img src="assets/imgs/publishedjob/location.svg" class="img-sub-size">
+              </span>
+              <span class=""> {{item.Location}}</span>
+            </p>
+            <p class="para-overflow-hidden">
+              <span>
+                <img src="assets/imgs/publishedjob/mail_icon.svg" class="img-sub-size">
+              </span>
+              <span class=""> {{item.Email}}</span>
+            </p>
+            <p class="para-overflow-hidden">
+              <span>
+                <img src="assets/imgs/publishedjob/mobile_icon.svg" class="img-sub-size">
+              </span>
+              <span class=""> {{item.ContactNo}}</span>
+            </p>
+            <p class="para-overflow-hidden">
+              <span>
+                Published: {{item.PublishedDate}}
+              </span>
+            
+            </p> -->
+
+    </ion-item>
+    <ion-row no-padding class="action-con">
+      <ion-col class="action-con-image margin-auto" *ngIf="userDetails.ProfileVerified">
+        <img src="{{userDetails.id_proof_base64}}" *ngIf="userDetails.id_proof_base64 != '' && userDetails.id_proof_base64 != null"
+          #myImage1 (click)="presentImage(myImage1)" class="action-con-image-size">
+        <img src="assets/imgs/noidcard.jpg" *ngIf="userDetails.id_proof_base64 == '' || userDetails.id_proof_base64 == null" class="action-con-image-size">
+       
+      </ion-col>
+      <ion-col class="action-con-image margin-auto"  *ngIf="!userDetails.ProfileVerified">
+          <img src="{{userDetails.id_proof_base64}}" *ngIf="userDetails.id_proof_base64 != '' && userDetails.id_proof_base64 != null"
+            #myImage1 (click)="presentImage(myImage1)" class="action-con-image-size">
+          <img src="assets/imgs/noidcard.jpg" *ngIf="userDetails.id_proof_base64 == '' || userDetails.id_proof_base64 == null" class="action-con-image-size">
+          <p (click)="uploadImage(1)" style="margin: 3px 0px 0px 0px;text-align: center;font-size: 12px;color: #ffffff;background: #f65f6e;padding: 5px;">{{labelList.label30}}</p>
+        </ion-col>
+
+      <ion-col text-right class="action-con-image margin-auto" *ngIf="userDetails.ProfileVerified">
+        <img src="{{userDetails.id_proof1_base64}}" *ngIf="userDetails.id_proof1_base64 != '' && userDetails.id_proof1_base64 != null"
+          #myImage2 (click)="presentImage(myImage2)" class="action-con-image-size">
+        <img src="assets/imgs/noidcard.jpg" *ngIf="userDetails.id_proof1_base64 == '' || userDetails.id_proof1_base64 == null" class="action-con-image-size">
+
+      </ion-col>
+      <ion-col text-right class="action-con-image margin-auto" *ngIf="!userDetails.ProfileVerified">
+          <img src="{{userDetails.id_proof1_base64}}" *ngIf="userDetails.id_proof1_base64 != '' && userDetails.id_proof1_base64 != null"
+            #myImage2 (click)="presentImage(myImage2)" class="action-con-image-size">
+          <img src="assets/imgs/noidcard.jpg" *ngIf="userDetails.id_proof1_base64 == '' || userDetails.id_proof1_base64 == null" class="action-con-image-size">
+          <p (click)="uploadImage(2)" style="margin: 3px 0px 0px 0px;text-align: center;font-size: 12px;color: #ffffff;background: #f65f6e;padding: 5px;">{{labelList.label30}}</p>
+        </ion-col>
+    </ion-row>
+  </ion-card>
+  <ion-list class="profile-con">
+    <ion-item>
+      <ion-input type="text" [placeholder]="labelList.label12" [(ngModel)]="userDetails.FirstName" disabled="{{userDetails.ProfileVerified}}"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" [placeholder]="labelList.label13" [(ngModel)]="userDetails.LastName" disabled="{{userDetails.ProfileVerified}}"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" [placeholder]="labelList.label50" [(ngModel)]="userDetails.Age" disabled="{{userDetails.ProfileVerified}}"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" [placeholder]="labelList.label25" [(ngModel)]="userDetails.Address"></ion-input>
+    </ion-item>
+
+
+
+    <ion-item class="dropdown-text">
+      <ion-label>{{labelList.label19}}</ion-label>
+      <ion-select [(ngModel)]="selectedCountry" (ionChange)="onChangeOfCountries()">
+        <ion-option *ngFor="let country of countries" value={{country.CountryId}}>{{country.CountryName}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+
+    <ion-item class="dropdown-text">
+      <ion-label>{{labelList.label21}}</ion-label>
+      <ion-select [(ngModel)]="selectedCity" (ionChange)="onChangeOfCity()">
+        <ion-option *ngFor="let city of cities" value={{city.CityId}}>{{city.CityName}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item class="dropdown-text">
+      <ion-label>{{labelList.label23}}</ion-label>
+      <ion-select [(ngModel)]="selectedDistrict" (ionChange)="onChangeOfDistrict()">
+        <ion-option *ngFor="let district of districts" value={{district.DistrictId}}>{{district.DistrictName}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-input type="emali" [placeholder]="labelList.label27" [(ngModel)]="userDetails.Email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" [placeholder]="labelList.label85" [(ngModel)]="userDetails.PhoneNumber"></ion-input>
+    </ion-item>
+    <p class="contactoption" *ngIf="userDetails.ContactOption.length !=0">{{labelList.label86}}</p>
+    <ion-item *ngIf="userDetails.ContactOption.length !=0">
+      <ion-label>{{labelList.label27}}</ion-label>
+      <ion-checkbox [(ngModel)]="isEmailSelected"></ion-checkbox>
+    </ion-item>
+
+    <ion-item *ngIf="userDetails.ContactOption.length !=0">
+      <ion-label>Phone</ion-label>
+      <ion-checkbox [(ngModel)]="isPhoneSelected"></ion-checkbox>
+    </ion-item>
+    <p class="contactoption" (click)="changepassword()">
+      <ion-icon name="unlock"></ion-icon>
+      <span style="color: #fa005a;">{{labelList.label87}}</span>
+    </p>
+    <div class="profile-btn-con">
+      <button ion-button round pr style="height:4.5rem;" (tap)="updateProfile()">{{labelList.label88}}</button>
+    </div>
+  </ion-list>
+
+</ion-content>

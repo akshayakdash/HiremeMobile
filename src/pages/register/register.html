@@ -1,0 +1,261 @@
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<ion-content padding>
+  <div class="register-logo-container">
+    <img src="assets/imgs/logo.png">
+  </div>
+  <div class="register-form">
+    <ion-slides [ngClass]="{'slide2': slideACtiveIndex == 1}" #registerSlider (ionSlideDidChange)="slideChanged()">
+      <ion-slide>
+        <div class="register-input-con">
+          <ion-list>
+            <ion-item class="dropdown-text">
+              <ion-label>{{labelList.label6}}</ion-label>
+              <ion-select [(ngModel)]="registerObj.UserRoles">
+                <ion-option value="0">--{{labelList.label7}}--</ion-option>
+                <ion-option value="Candidate">{{labelList.label8}}</ion-option>
+                <ion-option value="Employer">{{labelList.label9}}</ion-option>
+                <ion-option value="Agency">{{labelList.label10}}</ion-option>
+              </ion-select>
+            </ion-item>
+
+          </ion-list>
+          <p class="register-label-text">{{labelList.label11}}</p>
+          <ion-list>
+
+            <ion-item>
+              <ion-input type="text" [placeholder]="labelList.label12" [(ngModel)]="registerObj.FirstName"></ion-input>
+
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="text" [placeholder]="labelList.label13" [(ngModel)]="registerObj.LastName"></ion-input>
+            </ion-item>
+            <ion-item class="dropdown-text">
+              <ion-label>{{labelList.label14}}</ion-label>
+              <ion-select [(ngModel)]="registerObj.Gender">
+                <ion-option value="2">{{labelList.label15}}</ion-option>
+                <ion-option value="1">{{labelList.label16}}</ion-option>
+              </ion-select>
+            </ion-item>
+
+            <ion-item class="date-text">
+              <ion-label>{{labelList.label17}}</ion-label>
+              <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="DD-MM-YYYY" min="1900-12-31" max="{{maxDate}}"
+                [(ngModel)]="registerObj.DOB"></ion-datetime>
+            </ion-item>
+          </ion-list>
+          <p class="register-label-text">{{labelList.label18}}</p>
+          <ion-list>
+            <ion-item class="dropdown-text">
+              <ion-label>{{labelList.label19}}</ion-label>
+              <ion-select [(ngModel)]="registerObj.CountryId" (ionChange)="getActiveCities()">
+                <ion-option value="0">--{{labelList.label20}}--</ion-option>
+                <ion-option *ngFor="let country of countries" value="{{country.CountryId}}">{{country.CountryName}}
+                </ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item class="dropdown-text">
+              <ion-label>{{labelList.label21}}</ion-label>
+              <ion-select [(ngModel)]="registerObj.CityId" (ionChange)="getActiveDistricts()">
+                <ion-option value="0">--{{labelList.label22}}--</ion-option>
+                <ion-option *ngFor="let city of cities" value="{{city.CityId}}">{{city.CityName}}</ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item class="dropdown-text">
+              <ion-label>{{labelList.label23}}</ion-label>
+              <ion-select [(ngModel)]="registerObj.DistrictId">
+                <ion-option value="0">--{{labelList.label24}}--</ion-option>
+                <ion-option *ngFor="let district of districts" value="{{district.DistrictId}}">{{district.DistrictName}}
+                </ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-textarea [placeholder]="labelList.label25" [(ngModel)]="registerObj.Address"></ion-textarea>
+            </ion-item>
+          </ion-list>
+          <p class="register-label-text">{{labelList.label26}}</p>
+          <ion-list>
+
+            <ion-item>
+              <ion-input type="Email" [placeholder]="labelList.label27" (change)="checkemailidexist($event)"  [(ngModel)]="registerObj.Email"></ion-input>
+            </ion-item>
+
+
+            <ion-row>
+              <ion-col col-3>
+                <ion-item class="dropdown-text">
+                  <ion-select [(ngModel)]="registerObj.CountryCode" style="max-width: 100%;padding: 0px 0px 0px 0px;">
+                    <ion-option value="+225">+225</ion-option>
+                  </ion-select>
+                </ion-item>
+              </ion-col>
+
+              <ion-col col-9>
+                <ion-item>
+                  <ion-input [(ngModel)]="registerObj.PhoneNumber" type="tel" [placeholder]="labelList.label28"
+                    spellcheck="false" autocapitalize="off" maxlength="10" (keypress)="onlyNumber($event)">
+                  </ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-list>
+        </div>
+      </ion-slide>
+      <ion-slide>
+         
+        <p style="color:#F5005D;" class="register-label-text">{{labelList.label180}}</p>
+        <ion-list *ngIf="!otpsent">
+            
+          <ion-row>
+            <ion-col col-3>
+              <ion-item class="dropdown-text">
+                <ion-select disabled [(ngModel)]="registerObj.CountryCode" style="max-width: 100%;padding: 0px 0px 0px 0px;">
+                  <ion-option value="+225">+225</ion-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+            <ion-col col-9>
+              <ion-item>
+                <ion-input disabled [(ngModel)]="registerObj.PhoneNumber" type="tel" [placeholder]="labelList.label28"
+                  spellcheck="false" autocapitalize="off" maxlength="10" (keypress)="onlyNumber($event)">
+                </ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <!-- <ion-item>
+            <re-captcha (resolved)="captchaResolved($event)" siteKey="6Le-Y6kUAAAAAA_E9qTdrcHCM2rlIYFvQXO_riqx">
+            </re-captcha>
+          </ion-item> -->
+        </ion-list>
+        <p *ngIf="otpsent" style="text-align: left;font-size: 14px;margin-top:15px;" class="register-label-text">
+          {{labelList.label184}}</p>
+        <p *ngIf="otpsent" style="text-align: left;color: #ffde00;margin-top: 15px;" class="register-label-text">+225
+          {{registerObj.PhoneNumber}}</p>
+
+        <ion-list *ngIf="otpsent">
+          <ion-item>
+            <ion-input type="text" [placeholder]="labelList.label185" [(ngModel)]="pin"></ion-input>
+          </ion-item>
+
+        </ion-list>
+        <p *ngIf="!otpsent" style="text-align:left; margin-top: 25px;    font-size: 13px;" class="register-label-text">{{labelList.label183}}</p>
+        <p *ngIf="otpsent" style="text-align:left; margin-top: 25px;    font-size: 13px;" class="register-label-text">
+          {{labelList.label187}}</p>
+      </ion-slide>
+      <ion-slide>
+        <p class="register-label-text">{{labelList.label29}}</p>
+        <ion-row>
+          <ion-col col-12>
+            <ion-row>
+              <ion-col col-4 *ngFor="let item of images;">
+                <p *ngIf="item.id==0" style="height: 25px;margin: 0;text-align: center;font-size: 12px;color: #f65f6e;">
+                  {{labelList.label161}}</p>
+                <p *ngIf="item.id==1" style="height: 25px;margin: 0;text-align: center;font-size: 12px;color: #f65f6e;">
+                  {{labelList.label162}}</p>
+                <p *ngIf="item.id==2" style="height: 25px;margin: 0;text-align: center;font-size: 12px;color: #f65f6e;">
+                  {{labelList.label163}}</p>
+                <img class="img-size" [src]="item.file && item.file!=''? item.file:'assets/imgs/upload.png'"
+                  (click)="uploadImage(item)" />
+
+                <p style="margin: 0;text-align: center;font-size: 12px;color: #f65f6e;">{{labelList.label30}}</p>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+        <p class="register-label-text" *ngIf="registerObj.UserRoles=='Agency'">{{labelList.label157}}</p>
+        <ion-list *ngIf="registerObj.UserRoles=='Agency'">
+          <ion-item>
+            <ion-input type="text" [placeholder]="labelList.label158" [(ngModel)]="registerObj.CompanyName"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="text" [placeholder]="labelList.label159" [(ngModel)]="registerObj.ResponsibleName">
+            </ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="text" [placeholder]="labelList.label160" [(ngModel)]="registerObj.WebSiteUrl"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-textarea [placeholder]="labelList.label53" [(ngModel)]="registerObj.CompanyActivity"></ion-textarea>
+          </ion-item>
+        </ion-list>
+
+        <p class="register-label-text">{{labelList.label31}}</p>
+        <ion-list>
+          <ion-item>
+            <ion-input type="text" [placeholder]="labelList.label32" [(ngModel)]="registerObj.UserName"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="password" [placeholder]="labelList.label2" [(ngModel)]="registerObj.Password"></ion-input>
+          </ion-item>
+          <p class="pass-hints">{{labelList.label33}}</p>
+          <ion-item>
+            <ion-input type="password" [placeholder]="labelList.label34" [(ngModel)]="registerObj.ConfirmPassword">
+            </ion-input>
+          </ion-item>
+          <!-- <ion-item class="dropdown-text" *ngIf="securityQuestions.length > 0">
+            <ion-label>{{labelList.label35}}</ion-label>
+            <ion-select [(ngModel)]="registerObj.SecurityQuestionId">
+              <ion-option *ngFor="let item of securityQuestions" value="{{item.SecurityQuestionId}}">{{item.Question}}</ion-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-input type="text" [placeholder]="labelList.label36" [(ngModel)]="registerObj.SecurityQuestionAnswer"></ion-input>
+          </ion-item> -->
+          <ion-item>
+            <ion-label style="color: blue !important;text-decoration: underline;" (click)="opentandc()">
+              {{labelList.label174}}</ion-label>
+
+          </ion-item>
+          <ion-item>
+            <ion-label>{{labelList.label37}}</ion-label>
+            <ion-checkbox [(ngModel)]="registerObj.AgreeTermsAndConditions"></ion-checkbox>
+          </ion-item>
+          <!--[(ngModel)]="registerObj.AgreeTermsAndConditions"-->
+        </ion-list>
+      </ion-slide>
+    </ion-slides>
+<div [ngStyle]="getMyStyles()">
+
+
+    <div class="register-btn-con">
+      <div *ngIf="slideACtiveIndex == 1 && otpsent" style="position: relative;">
+        <p style="text-align: center;
+        color: #050505;
+        font-weight: bold;" (click)="resendotp()" >{{labelList.label188}}</p>
+      </div>
+      <button ion-button round full pr class="login-button" (click)="continue()"
+        *ngIf="slideACtiveIndex == 0" [disabled]="!emailValidated">{{labelList.label38}}</button>
+      <ion-row *ngIf="slideACtiveIndex == 1">
+        <ion-col col-6>
+          <button ion-button round full pr class="login-button" (click)="cancel()">{{labelList.label182}}</button>
+        </ion-col>
+        <ion-col col-6 *ngIf="!otpsent">
+          <button ion-button round full pr class="login-button" [disabled]="!this.captchaPassed"
+            (click)="sendotp()">{{labelList.label181}}</button>
+        </ion-col>
+        <ion-col col-6 *ngIf="otpsent">
+          <button ion-button round full pr class="login-button" [disabled]="!this.captchaPassed"
+            (click)="continuetoregister()">{{labelList.label186}}</button>
+           
+        </ion-col>
+      </ion-row>
+
+
+      <button ion-button round full pr class="login-button" (click)="register()"
+        *ngIf="slideACtiveIndex == 2">{{labelList.label39}}</button>
+        <!-- <button ion-button round full pr class="login-button" (click)="register()"
+        *ngIf="slideACtiveIndex == 1">{{labelList.label39}}</button> -->
+    </div>
+    <div class="bottom-con">
+
+      <ion-row>
+        <ion-col col-8 class="forgot-text" (click)="gotoForgotPassword()">{{labelList.label4}} ?</ion-col>
+
+        <ion-col col-4 class="text-right signup-text" (click)="gotoLogin()">{{labelList.label3}}!</ion-col>
+      </ion-row>
+
+    </div>
+  </div>
+  </div>
+</ion-content>

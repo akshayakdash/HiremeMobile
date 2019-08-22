@@ -1,0 +1,51 @@
+<!--
+  Generated template for the AdmindashboardPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{labelList.pagetitle10}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-row>
+    <ion-col col-12 class="padding-0">
+      <ion-segment [(ngModel)]="tabValue">
+        <ion-segment-button *ngFor="let option of tapOption ;  let i = index;" value="{{option.Key}}" (click)="tabSelection($event,i)">
+          {{option.Value}}
+        </ion-segment-button>
+      </ion-segment>
+    </ion-col>
+    <ion-col col-12>
+      <div>
+        <div>
+          <ion-list>
+            <ion-item>
+              <ion-label>{{labelList.label93}}</ion-label>
+              <ion-select [(ngModel)]="year">
+                <ion-option value="2018">2018</ion-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+          <div>
+            <p class="graph-header" text-center>{{labelList.label94}}</p>
+            <canvas #lineCanvas height="280vh"></canvas>
+          </div>
+          <div>
+            <p class="graph-header" text-center>{{labelList.label95}}</p>
+            <canvas #doughnutCanvas height="280vh"></canvas>
+          </div>
+        </div>
+      </div>
+    </ion-col>
+  </ion-row>
+
+</ion-content>

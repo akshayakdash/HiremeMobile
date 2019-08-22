@@ -1,0 +1,71 @@
+page-jobofferdetails{
+  .scroll-content{
+    padding:0px !important;    
+    // margin-top: 98px !important;
+
+}
+
+.img-sub-size{
+width: 17px;
+margin-top: 5px;
+display: inline;
+vertical-align: bottom;
+margin-left: -2px;
+}
+.rating-sec > ul {
+padding: 0px;
+margin: 0px;
+&.rating li {
+  padding: 0px !important;
+  background: none;
+  color: #d84d7f;
+
+  ion-icon {
+    font-size: 17px;
+  }
+}
+}
+.avatar-top{
+margin: 16px 16px 8px 0 !important;
+margin-bottom: auto !important;
+}
+ion-avatar img{
+width: 50px !important;
+height: 50px !important;
+}
+.req-type-color{
+  color:#71dc9d;
+}
+.sub-header-title{
+font-weight: 500;
+font-size: 14px;
+color: #55555f;
+}
+.details-card{
+margin: 0px !important;
+
+width: 100% !important;
+}
+.sub-skill-task{
+margin-left: 20px;
+}
+.skill-task{
+margin-left: 10px;
+}
+.item-img{
+width: 19px;
+background: #fe005a;
+float: left;
+margin-right: 5px;
+}
+.job-btn-con{
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 10px;
+}
+ul{
+  list-style: none !important;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+}

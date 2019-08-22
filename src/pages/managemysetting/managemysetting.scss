@@ -1,0 +1,99 @@
+page-managemysetting {
+
+    .scroll-content{
+        padding:0px !important;    
+        // margin-top: 98px !important;
+
+    }
+/*card*/
+
+.job-card-con{
+    margin: 5px;
+    width: calc(100% - 10px);
+}
+.img-sub-size{
+    width: 17px;
+    margin-top: 5px;
+    display: inline;
+    vertical-align: bottom;
+    margin-left: -2px;
+}
+.rating-sec > ul {
+    padding: 0px;
+    margin: 0px;
+    &.rating li {
+      padding: 0px !important;
+      background: none;
+      color: #d84d7f;
+  
+      ion-icon {
+        font-size: 17px;
+      }
+    }
+  }
+  .avatar-top{
+    margin: 16px 10px 8px 0 !important;
+    margin-bottom: auto !important;
+  }
+  ion-avatar img{
+    width: 50px !important;
+    height: 50px !important;
+  }
+  .req-type-color{
+      color:#2AA03F;
+  }
+  .job-card-con .label-md {
+    margin: 8px 8px 5px 0;
+}
+.action-con{
+    border-top: 1px solid #e8e8e8;
+}
+.action-con-inner{
+   padding: 0;
+}
+.action-btn{
+    background: transparent;
+    color: #f5005b;
+}
+.action-con-image-size{
+    height: 120px;
+    border: 1px solid #b0a5a5;
+    padding: 2px;
+}
+  /***********************************/
+
+  .job-card-con > .item-md {
+    padding-left: 8px;
+}
+
+.job-card-con > .item-md > .item-inner {
+    padding-right: 0px !important;
+    border-bottom: 1px solid #dedede;
+}
+.font-size-13 {
+    font-size: 13px !important;
+}
+
+.profile-con {
+    padding:0px 5px 5px 5px;
+}
+.profile-con .item-md{
+    padding-left:0px;
+}
+
+.profile-con .label-md {
+    margin: 13px 8px 13px 8px;
+}
+.contactoption{
+    background: white;
+    margin: 0;
+    padding: 10px 5px 10px 5px;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+.profile-btn-con{
+    background: white;
+    text-align: center;
+    padding-bottom: 10px;
+}
+}

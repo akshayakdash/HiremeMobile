@@ -1,0 +1,70 @@
+page-login{
+
+    .scroll-content {
+        background: url("../assets/imgs/bg.png") !important;
+
+      }
+      .login-logo-container{
+        text-align: center;
+        padding: 80px;
+      }
+      .login-btn-con{
+        margin-top: 10px;
+      }
+      .forgot-text{
+        color: white;
+        font-size: 1.2rem;
+      }
+      .signup-text{
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+      .bottom-con{
+        margin-top: 10px;
+      }
+      .item-md {
+         padding-left: 0px; 
+         background-color: rgba(255, 255, 255, 0);
+         color: #fff;
+       
+    }
+ 
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #FFFFFF !important;
+  opacity: 1; /* Firefox */
+  font-size: 13px;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #FFFFFF !important;
+  font-size: 13px;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #FFFFFF !important;
+  font-size: 13px;
+}
+
+  .item-input.item-input-has-focus .item-inner,
+  .item-input.input-has-focus .item-inner {
+  border-bottom-color: white !important;
+  -webkit-box-shadow: inset 0 -1px 0 0 transparent !important;
+  box-shadow: inset 0 -1px 0 0 transparent !important;
+  }
+
+  .item-input.item-input-has-focus:last-child, .list-md .item-input.input-has-focus:last-child{
+  border-bottom-color: white !important;
+  -webkit-box-shadow: inset 0 -1px 0 0 transparent !important;
+  box-shadow: inset 0 -1px 0 0 transparent !important;
+  }
+  .item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+  .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+  border-bottom-color: white !important;
+  box-shadow: inset 0 -1px 0 0 transparent !important;
+  }
+  .item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child, .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child{
+  border-bottom-color: white !important;
+  -webkit-box-shadow: inset 0 -1px 0 0 transparent !important;
+  box-shadow: inset 0 -1px 0 0 transparent !important;
+  }
+}

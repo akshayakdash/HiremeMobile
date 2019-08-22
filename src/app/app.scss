@@ -1,0 +1,300 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+$btnprimary: #F5005D;
+body {
+    --success-color: #68bb69;
+    --danger-color: #f65f6e;
+}
+.button-md{
+    background: $btnprimary;
+
+}
+.login-button{
+  
+    height: 4.5rem;
+}
+
+.text-right{
+    text-align: right;
+}
+
+
+.toolbar-background-md{
+    background-color: #fe005a;
+        background: -webkit-linear-gradient(left, #310068, #fe005a);
+        background: -ms-linear-gradient(left, #310068, #fe005a);
+        background: linear-gradient(left, #310068, #fe005a);
+      
+}
+.toolbar-title-md {
+    color: #ffffff;
+}
+
+.bar-button-default-md {
+    color: #ffffff;
+
+}
+.menu-content .scroll-content {
+    padding: 0px;
+    background: #ffffff;
+}
+.menu-img-con{
+    background: #F5005D;
+    text-align: center;
+    padding: 25px 0px 25px 0px;
+}
+.menu-img{
+    width: 90px;
+    border-radius: 67%;
+    height: 90px;
+}
+.menu-img-text{
+    color: white;
+    margin: 10px 0px 0px 0px;
+}
+.jobtek-menu-list .item-block .item-inner {
+    border-bottom: 0;
+}
+.jobtek-menu-img{
+    width: 15px;
+    height: 15px;
+    float: left;
+}
+.jobtek-menu-text{
+
+}
+.page-body .scroll-content {
+    padding: 5px ;
+    background: gainsboro;
+}
+.margin-right-10{
+    margin-right: 10px !important;
+}
+.margin-right-15{
+    margin-right: 15px !important;
+}
+.margin-left-10{
+    margin-left: 10px !important;
+}
+.margin-left-15{
+    margin-left: 15px !important;
+}
+.font-weight-500{
+    font-weight: 500 !important;
+}
+.margin-bottom-5{
+    margin-bottom: 5px !important;
+}
+.margin-bottom-0{
+    margin-bottom: 0px !important;
+}
+///Font size style
+.font-size-16{
+    font-size: 16px !important;
+}
+.font-size-13{
+    font-size: 13px !important;
+}
+.font-size-14{
+    font-size: 14px !important;
+}
+.font-size-25{
+    font-size: 25px !important;
+}
+.margin-top--10{
+    margin-top: -10px;
+}
+.margin-top-0{
+    margin-top: 0px;
+}
+.para-overflow-hidden {
+    padding: 0px 0px 0px 0px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+
+.float-left{
+    float: left;
+}
+.float-right{
+    float:right;
+}
+.border-bottom-1{
+    border-bottom: 1px solid #ececec;
+}
+.white-space-initial{
+    white-space: initial;
+}
+.default-add.item-block .item-inner {
+    border-bottom: 0 !important;
+}
+.padding-left-0{
+    padding-left: 0px !important;
+}
+.padding-0{
+    padding: 0px !important;
+}
+.padding-left-5{
+    padding-left: 5px;
+}
+.padding-left-10{
+    padding-left: 10px !important;
+}
+.padding-left-15{
+    padding-left: 15px !important;
+}
+.checkbox  .checkbox-checked{
+    border-color: #fe005a !important;
+    background-color: #fe005a !important;
+}
+.radio .radio-checked {
+    border-color: #fe005a !important;
+}
+.radio .radio-inner{
+    background-color: #fe005a !important;
+}
+
+.padding-0{
+    padding: 0px;
+}
+.jobtek-fab-btn .fab-md-danger{
+    background-color: #fe005a;
+        background: -webkit-linear-gradient(left, #310068, #fe005a);
+        background: -ms-linear-gradient(left, #310068, #fe005a);
+        background: linear-gradient(left, #310068, #fe005a);
+}
+
+//Loader style
+
+.spinner1 {
+    //margin: 100px auto 0;
+    width: 70px;
+    text-align: center;
+}
+
+.spinner1>div {
+    width: 18px;
+    height: 18px;
+    background-color: #ff0060; //#333;
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner1 .bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+}
+
+.spinner1 .bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+    0%,
+    80%,
+    100% {
+        -webkit-transform: scale(0)
+    }
+    40% {
+        -webkit-transform: scale(1.0)
+    }
+}
+
+@keyframes sk-bouncedelay {
+    0%,
+    80%,
+    100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    40% {
+        -webkit-transform: scale(1.0);
+        transform: scale(1.0);
+    }
+}
+
+ion-loading>.loading-wrapper {
+    border-radius: 2px;
+    max-width: 280px;
+    max-height: 90%;
+    color: rgba(0, 0, 0, 0.5);
+    background: transparent !important;
+    /* -webkit-box-shadow: 0 16px 20px rgba(0, 0, 0, 0.4); */
+    box-shadow: none !important;
+    padding: 24px;
+}
+.error .toast-container {
+    background: var(--danger-color) !important;
+}
+.success .toast-container {
+        background: var(--success-color) !important;
+}
+.warning .toast-container {
+        background:var(--warning-color) !important;
+}
+.success .toast-container .toast-button{
+    background: transparent !important;
+}
+.error .toast-container .toast-button{
+    background: transparent !important;
+}
+.not-available{
+    color: #f5005b;
+    font-size: 16px !important;
+}
+.cancel-btn-style{
+    color: grey !important;
+}
+.ok-btn-style{
+    color: #f5005b !important;
+}
+.alert-header-back-style{
+    color: #f5005b !important;      
+}
+.margin-auto{
+    margin:auto !important;
+}
+
+.block-with-text {
+    overflow: hidden;
+    position: relative;
+    line-height: 1.2em;
+    max-height: 3.1rem;
+    text-align: justify;
+    margin-right: -1em;
+    padding-right: 1em;
+  }
+  .block-with-text:before {
+    content: '...';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  .block-with-text:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+    background: white;
+  }

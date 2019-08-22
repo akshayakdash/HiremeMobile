@@ -1,0 +1,276 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{labelList.pagetitle20}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="">
+  <ion-row>
+    <ion-col col-12>
+      <ion-row class="">
+        <ion-col col-12>
+          <p class="form-header">
+            {{labelList.label134}}
+          </p>
+        </ion-col>
+        <ion-list class="margin-bottom-5" radio-group [(ngModel)]="jobCriteria.Gender">
+          <ion-item class="radio-btn-sec default-add">
+            <ion-radio item-left value="2"></ion-radio>
+            <ion-label class="font-size-14">{{labelList.label15}}</ion-label>
+          </ion-item>
+          <ion-item class="radio-btn-sec default-add">
+            <ion-radio item-left value="1"></ion-radio>
+            <ion-label class="font-size-14">{{labelList.label16}}</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-row>
+      <ion-row class="">
+        <ion-col col-12>
+          <p class="form-header">
+            {{labelList.label135}}
+          </p>
+        </ion-col>
+        <ion-list class="margin-bottom-5" radio-group [(ngModel)]="jobCriteria.StaffType">
+          <ion-item class="radio-btn-sec default-add">
+            <ion-radio item-left value="2"></ion-radio>
+            <ion-label class="font-size-14">{{labelList.label10}}</ion-label>
+          </ion-item>
+          <ion-item class="radio-btn-sec default-add">
+            <ion-radio item-left value="1"></ion-radio>
+            <ion-label class="font-size-14">{{labelList.label48}}</ion-label>
+          </ion-item>
+          <ion-item class="radio-btn-sec default-add">
+            <ion-radio item-left value="0"></ion-radio>
+            <ion-label class="font-size-14">{{labelList.label76}}</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <p class="form-header">
+            {{labelList.label136}}
+          </p>
+        </ion-col>
+        <ion-col col-6>
+          <ion-item class="padding-left-10">
+            <ion-input [(ngModel)]="jobCriteria.MinAge" type="tel" [placeholder]="labelList.label71" #minAge="ngModel" spellcheck="false" autocapitalize="off"
+              maxlength="2" (keypress)="onlyNumber($event)">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col col-6>
+          <ion-item class="padding-left-10">
+            <ion-input [(ngModel)]="jobCriteria.MaxAge" type="tel" [placeholder]="labelList.label72" #maxAge="ngModel" spellcheck="false" autocapitalize="off"
+              maxlength="3" (keypress)="onlyNumber($event)">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <p class="form-header">
+            {{labelList.label137}}
+          </p>
+        </ion-col>
+        <ion-col col-6>
+          <ion-item class="padding-left-10">
+            <ion-input [(ngModel)]="jobCriteria.ExperienceInYears" type="tel" [placeholder]="labelList.label93" spellcheck="false" autocapitalize="off"
+              maxlength="2" (keypress)="onlyNumber($event)">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col col-6>
+          <ion-item class="padding-left-10">
+            <ion-input [(ngModel)]="jobCriteria.ExperienceInMonths" type="tel" [placeholder]="labelList.label121" spellcheck="false" autocapitalize="off"
+              maxlength="3" (keypress)="onlyNumber($event)">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-12>
+          <p class="form-header">
+           {{labelList.label122}}
+          </p>
+        </ion-col>
+        <ion-col col-6>
+          <ion-select class="margin-left-10" [(ngModel)]="jobCriteria.CityId" (ionChange)="onSelectedCity()">
+            <ion-option value="0">--{{labelList.label21}}--</ion-option>
+            <ion-option *ngFor="let item of cities" value="{{item.CityId}}">{{item.CityName}}</ion-option>
+          </ion-select>
+        </ion-col>
+        <ion-col col-6>
+          <ion-select class="margin-left-10" [(ngModel)]="jobCriteria.DistrictId" [disabled]="jobCriteria.CityId == 0">
+              <ion-option *ngIf="languageSelected=='en'" value="0">District</ion-option>
+              <ion-option *ngIf="languageSelected=='fr'" value="0">Quartier</ion-option>
+            <ion-option *ngFor="let item of districts" value="{{item.DistrictId}}">{{item.DistrictName}}</ion-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <p class="form-header">
+            {{labelList.label138}}
+          </p>
+        </ion-col>
+        <ion-col col-12>
+          <ion-list class="margin-bottom-5" radio-group [(ngModel)]="jobCriteria.SalaryType">
+            <ion-item class="radio-btn-sec default-add">
+              <ion-radio item-left value="1"></ion-radio>
+              <ion-label class="font-size-14">{{labelList.label124}}</ion-label>
+            </ion-item>
+            <ion-item class="radio-btn-sec default-add">
+              <ion-radio item-left value="2"></ion-radio>
+              <ion-label class="font-size-14">{{labelList.label125}}</ion-label>
+            </ion-item>
+            <ion-item class="radio-btn-sec default-add">
+              <ion-radio item-left value="3"></ion-radio>
+              <ion-label class="font-size-14">{{labelList.label126}}</ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+        <ion-col col-6>
+          <ion-item class="padding-left-10">
+            <ion-input [(ngModel)]="jobCriteria.ExpectedMinSalary" type="tel" [placeholder]="labelList.label71" #minSal="ngModel" spellcheck="false" autocapitalize="off"
+              maxlength="10" (keypress)="onlyNumber($event)">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col col-6>
+          <ion-item class="padding-left-10">
+            <ion-input [(ngModel)]="jobCriteria.ExpectedMaxSalary" type="tel" [placeholder]="labelList.label72" #maxSal="ngModel" spellcheck="false" autocapitalize="off"
+              maxlength="10" (keypress)="onlyNumber($event)">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <ion-item class="margin-bottom-5">
+            <ion-label class="margin-top-0 font-size-14">
+              <span>{{labelList.label139}}</span>
+              <span>
+                <img src="assets/imgs/createJobReq/study.svg" class="img-sub-size margin-left-10" style="width:25px">
+              </span>
+            </ion-label>
+            <ion-checkbox item-left class="margin-right-15" [(ngModel)]="jobCriteria.CanRead" #read="ngModel" spellcheck="false" autocapitalize="off"
+              required>
+            </ion-checkbox>
+          </ion-item>
+          <ion-item class="margin-bottom-5">
+            <ion-label class="margin-top-0 font-size-14">
+              <span>{{labelList.label140}}</span>
+              <span>
+                <img src="assets/imgs/createJobReq/write-letter.svg" class="img-sub-size margin-left-10" style="width:25px">
+              </span>
+            </ion-label>
+            <ion-checkbox item-left class="margin-right-15" [(ngModel)]="jobCriteria.CanWrite" #read="ngModel" spellcheck="false" autocapitalize="off"
+              required>
+            </ion-checkbox>
+          </ion-item>
+          <ion-item class="margin-bottom-5">
+            <ion-label class="margin-top-0 font-size-14">
+              <span>{{labelList.label141}}</span>
+              <span>
+                <img src="assets/imgs/createJobReq/slumber.svg" class="img-sub-size margin-left-10" style="width:25px">
+              </span>
+            </ion-label>
+            <ion-checkbox item-left class="margin-right-15" [(ngModel)]="jobCriteria.SleepOnSite" #read="ngModel" spellcheck="false" autocapitalize="off"
+              required>
+            </ion-checkbox>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <p class="form-header">
+            {{labelList.label142}}
+          </p>
+        </ion-col>
+        <ion-col col-6>
+          <ion-item>
+            <ion-label>
+              <ion-icon name="calendar" class="font-size-25"></ion-icon>
+            </ion-label>
+            <ion-datetime displayFormat="DD-MMM-YYYY" pickerFormat="DD-MMM-YYYY" name="appo-calendar" min="{{minDate}}" max="{{maxDate}}"
+              [(ngModel)]="showSelectedDate" (click)="isDateSelected = true" (ionChange)="onSelectedDate(true)"></ion-datetime>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <!-- <ion-row>
+        <ion-col col-12>
+          <p class="form-header">
+            {{labelList.label143}}
+          </p>
+        </ion-col>
+        <ion-col col-6>
+          <ion-item class="padding-left-10">
+            <ion-input [(ngModel)]="jobCriteria.MinGroupPeople" type="tel" [placeholder]="labelList.label144" #adult="ngModel" spellcheck="false" autocapitalize="off"
+              maxlength="2" (keypress)="onlyNumber($event)">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col col-6>
+          <ion-item class="padding-left-10">
+            <ion-input [(ngModel)]="jobCriteria.MaxGroupPeople" type="tel" [placeholder]="labelList.label145" #children="ngModel" spellcheck="false"
+              autocapitalize="off" maxlength="2" (keypress)="onlyNumber($event)">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row> -->
+     
+      <ion-row class="padding-left-15" *ngIf="jobTasks.length > 0">
+          <ion-col col-12>
+              <p class="form-header">
+                {{labelList.label130}}
+              </p>
+            </ion-col>
+        <ion-col col-12>
+          <div class="categories">
+            <div *ngFor="let job of (jobTasks | jobTaskPipe)">
+              <ion-checkbox item-left class="margin-right-15" name="job_task_{{job.JobTaskId}}" [(ngModel)]="job.Selected">
+              </ion-checkbox>
+              <span>{{job.JobTaskName}}</span>
+              <ul>
+                <ng-template #recursiveList let-list>
+                  <li *ngFor="let subTask of list">
+                    <div>
+                      <ion-checkbox item-left class="margin-right-15" name="job_task_{{subTask.JobTaskId}}" [(ngModel)]="subTask.Selected">
+                      </ion-checkbox>
+                      <span>{{subTask.JobTaskName}}</span>
+                    </div>
+                    <ul *ngIf="subTask.SubTasks?.length > 0">
+                      <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: subTask.SubTasks }"></ng-container>
+                    </ul>
+                  </li>
+                </ng-template>
+                <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: job.SubTasks }"></ng-container>
+              </ul>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col col-12>
+            <p class="form-header">
+              {{labelList.label131}}
+            </p>
+          </ion-col>
+          <ion-col col-12>
+            <ion-item>
+              <ion-textarea [placeholder]="labelList.label132" [(ngModel)]="jobCriteria.AdditionalDescription"></ion-textarea>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <button class="btn" type="button" (click)="onCreateJobResponse()" class="submit-btn">{{labelList.label133}}</button>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+</ion-content>

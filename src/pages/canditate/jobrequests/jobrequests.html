@@ -1,0 +1,170 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{labelList.pagetitle3}}</ion-title>
+  </ion-navbar>
+  <ion-toolbar class="segment-toolbar">
+    <ion-row class="filters">
+      <ion-col no-padding col-12>
+        <!-- <ion-slides (ionSlideDidChange)="slideChanged()" slidesPerView="3">
+          <ion-slide (click)="filterDataBySelectedCategory(category.JobCategoryId)" *ngFor="let category of categories">
+            <p class="para-overflow-hidden"
+              [class.selected]="selectedCategory?.JobCategoryId === category.JobCategoryId"
+              style="text-transform: uppercase;">{{ category.CategoryName }}</p>
+          </ion-slide>
+        </ion-slides> -->
+        <ion-slides slidesPerView="1">
+          <ion-slide>
+            <p class="para-overflow-hidden" style="text-transform: uppercase;">Mes announces</p>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-row *ngIf="isAvailable">
+    <ion-col col-12>
+      <div *ngIf="myJobRequestListByCategoryId.length > 0">
+        <ion-card class="job-card-con" *ngFor="let item of myJobRequestListByCategoryId; let i = index">
+          <ion-item class="">
+            <ion-avatar item-start class="avatar-top">
+              <img class="img-size" *ngIf="item.Gender == 1"
+                [src]="item.ProfilePicUrl && item.ProfilePicUrl!=null?item.ProfilePicUrl:'assets/imgs/maledefault.svg'" />
+              <img class="img-size" *ngIf="item.Gender == 2"
+                [src]="item.ProfilePicUrl && item.ProfilePicUrl!=null?item.ProfilePicUrl:'assets/imgs/femaledefault.svg'" />
+            </ion-avatar>
+            <div class="card">
+              <h4 class="para-overflow-hidden margin-bottom-5">
+                <span class="margin-right-10 font-weight-500 font-size-16 ">
+                  <span>
+                    <img src="assets/imgs/woman.svg" *ngIf="item.Gender == 2" class="card-name-geneder-icon">
+                    <img src="assets/imgs/male.svg" *ngIf="item.Gender == 1" class="card-name-geneder-icon">
+                  </span>
+                  <span *ngIf="item.FirstName && item.FirstName !=''">{{item.FirstName }} </span>
+                  <!-- <span *ngIf="item.LastName && item.LastName !=''">{{item.LastName }}</span> -->
+                </span>
+                <!-- <span class="req-type-color">
+                  <span *ngIf="item.StaffType && item.StaffType == 0">(Agency)</span>
+                  <span *ngIf="item.StaffType && item.StaffType == 1">(Independant)</span>
+                  <span *ngIf="item.StaffType && item.StaffType == 2">(Doesn't Matter)</span>
+                </span> -->
+              </h4>
+              <p class="para-overflow-hidden">
+                <span>
+                  <img src="assets/imgs/usertype.svg" class="img-sub-size">
+                </span>
+                <span class="req-type-color">
+                  <span *ngIf="item.StaffType && item.StaffType == 2">{{labelList.label10}}</span>
+                  <span *ngIf="item.StaffType && item.StaffType == 1">{{labelList.label48}}</span>
+                  <span *ngIf="item.StaffType && item.StaffType == 0">{{labelList.label76}}</span>
+                </span>
+              </p>
+              <!-- <p class="para-overflow-hidden">
+                <rating class="rating-sec" [(ngModel)]="item.StarRating" readOnly="true" max="5"
+                  emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star" nullable="false">
+                </rating>
+              </p> -->
+
+              <p class="para-overflow-hidden">
+                <span>
+                  <img src="assets/imgs/location.svg" class="img-sub-size">
+                </span>
+                <span class=""> {{item.Country}}, {{item.City}}, {{item.District}}</span>
+              </p>
+              <p class="card-job-item-name">{{item.JobName}}</p>
+              <p class="para-overflow-hidden">
+                <span>
+                  <img src="assets/imgs/salary.svg" class="img-sub-size">
+                </span>
+                <span class=""> {{labelList.label49}}: {{item.ExpectedMinSalary}} - {{item.ExpectedMaxSalary}}</span>
+              </p>
+
+              <!-- <p class="para-overflow-hidden">
+                        <span>
+                          <img src="assets/imgs/publishedjob/mail_icon.svg" class="img-sub-size">
+                        </span>
+                        <span class=""> {{item.Email}}</span>
+                      </p>
+                      <p class="para-overflow-hidden">
+                        <span>
+                          <img src="assets/imgs/publishedjob/mobile_icon.svg" class="img-sub-size">
+                        </span>
+                        <span class=""> {{item.ContactNo}}</span>
+                      </p> -->
+              <p class="para-overflow-hidden">
+                <span class="margin-right-10" *ngIf="item.Age > 0">
+                  <span>
+                    <img src="assets/imgs/age.svg" class="img-sub-size">
+                  </span>
+                  <span> {{labelList.label50}}: {{item.Age}} {{labelList.label164}}</span>
+
+                </span>
+                <span class="" *ngIf="item.ExperienceInYears > 0">
+                  <span>
+                    <img src="assets/imgs/experience.svg" class="img-sub-size">
+                  </span>
+
+                  <span>{{labelList.label51}}: {{item.ExperienceInYears}} {{labelList.label164}}</span>
+
+                </span>
+              </p>
+              <p class="para-overflow-hidden" *ngIf="item.PublishedDate">
+                <span>
+                  <img src="assets/imgs/date.svg" class="img-sub-size">
+                </span>
+                <span>
+                  {{labelList.label52}} {{item.PublishedDate}}
+                </span>
+              </p>
+            </div>
+          </ion-item>
+          <ion-item class="border-bottom-1 margin-top--10"
+            *ngIf="item.JobRequestDescription && item.JobRequestDescription!=''">
+            <p class="block-with-text">
+              <span class="sub-header-title">{{labelList.label53}}: </span>
+              <span class="font-size-13 white-space-initial ">{{item.JobRequestDescription}}</span>
+            </p>
+          </ion-item>
+          <ion-row no-padding class="action-con">
+            <ion-col class="action-con-inner">
+              <button ion-button clear small icon-start class="action-btn"
+                (click)="deleteSelectedJobRequests(item.JobRequestId,i)">
+                <ion-icon name="trash"></ion-icon>
+                {{labelList.label77}}
+              </button>
+            </ion-col>
+
+            <ion-col text-right class="action-con-inner">
+              <button ion-button clear small icon-start class="action-btn"
+                (click)="getSelectedDetails(item.JobRequestId)">
+                <ion-icon name="information-circle"></ion-icon>
+                {{labelList.label54}}
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="!isAvailable && myJobRequestListByCategoryId.length == 0">
+    <ion-col col-12 text-center>
+        <img style="width: 180px;" src="assets/images/guides/logo1.JPG">
+        <p style="font-weight: bold;
+        font-size: 25px;">SECTION « ANNONCE »</p>
+       
+        <p style="    font-size: 17px;">Cliquer sur le bouton <img style="width: 18px;" src="assets/images/guides/add.png"></p>
+        <p style="    font-size: 17px;"> pour créer une nouvelle annonce</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-fab right bottom class="jobtek-fab-btn">
+    <button ion-fab mini color="danger" (click)="gotoCreate()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

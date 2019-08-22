@@ -1,0 +1,45 @@
+page-filter {
+    .ion-list-label {
+        .item-block {
+            width: 50% !important;
+        }
+    }
+    .ion-item-noborder {
+        .item-inner {
+            border-bottom: none !important;
+        }
+    }
+    .ion-item-border {
+        border-bottom: 1px solid #dedede;
+    }
+    .nomargin .ion-list {
+        margin: 0px !important;
+    }
+    .no-border {
+        border-bottom: none !important;
+        div {
+            border-bottom: none !important;
+        }
+    }
+    .no-padding {
+        padding: 0px !important;
+    } // library css modification for android and ios too
+    .item-md .toggle-md {
+        cursor: pointer;
+        margin: 0;
+        padding: 6px 8px 9px 36px;
+    }
+    .label-md {
+        margin: 9px 8px 9px 0;
+    }
+    .select-md {
+        padding: 12px 4px 9px 0px !important;
+    }
+    ion-select {
+        width:99%;
+        max-width: 99% !important;
+    }
+    .select-md {
+        padding: 13px 8px 13px 0px !important;
+    }
+}

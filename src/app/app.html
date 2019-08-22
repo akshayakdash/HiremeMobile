@@ -1,0 +1,63 @@
+
+<style>
+  .goog-te-banner-frame.skiptranslate {
+              display: none !important;
+          }
+          body {
+              top:0px !important;
+          }
+          #google_translate_element{
+            display: none;
+          }
+  </style>
+<ion-menu [content]="content">
+  <ion-content class="menu-content">
+    <div class="menu-img-con">
+      <img class="menu-img" *ngIf="profileimg==''" src="assets/imgs/maledefault.svg">
+      <img class="menu-img" *ngIf="profileimg!=''" src="{{profileimg}}">
+      <p class="menu-img-text">{{userDetails.userName}}</p>
+      <!-- <p class="menu-img-text">{{userDetails.email}}</p> -->
+    </div>
+    <!-- <div id="google_translate_element"></div> -->
+    <ion-list class="jobtek-menu-list">
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <img class="jobtek-menu-img" [src]="p.imagepath"><p class="jobtek-menu-text">&nbsp;&nbsp;{{p.title}}</p>
+      </button>
+      <button menuClose ion-item  (click)="howitworks()">
+          <img class="jobtek-menu-img" src="assets/imgs/menu/instruction.svg"><p class="jobtek-menu-text">&nbsp;&nbsp;{{labelList.menu17}}</p>
+        </button>
+      <button menuClose ion-item  (click)="contactus()">
+          <img class="jobtek-menu-img" src="assets/imgs/menu/contact.svg"><p class="jobtek-menu-text">&nbsp;&nbsp;{{labelList.menu16}}</p>
+        </button>
+      <button menuClose ion-item  (click)="logout()">
+          <img class="jobtek-menu-img" src="assets/imgs/menu/logout.png"><p class="jobtek-menu-text">&nbsp;&nbsp;{{labelList.menu15}}</p>
+        </button>
+        <!-- <button menuClose ion-item  (click)="ChangeToEnglish()" *ngIf="language != 'en'">
+          <img class="jobtek-menu-img" src="assets/imgs/menu/logout.png"><p class="jobtek-menu-text">&nbsp;&nbsp;Language Change To English</p>
+        </button>
+        <button menuClose ion-item  (click)="ChangeToFrench()" *ngIf="language == 'en'">
+          <img class="jobtek-menu-img" src="assets/imgs/menu/logout.png"><p class="jobtek-menu-text">&nbsp;&nbsp;Language Change To French</p>
+        </button> -->
+        <!-- <div>
+          <p style="margin: 0;
+          background: #c7c7c7;
+          padding: 5px 5px 5px 16px;
+          font-weight: bold;">{{labelList.label173}}</p>
+          <p style="margin: 0;
+          padding: 5px 5px 5px 16px;"><b>{{labelList.label27}}:</b> jobtek.ci@gmail.com</p>
+          <p style="margin: 0;
+          padding: 5px 5px 5px 16px;"><b>{{labelList.label172}}:</b> +225 01934839</p>
+        </div> -->
+        
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false" class="page-body"></ion-nav>
+<!-- <ion-fab left bottom class="jobtek-fab-btn">
+  <button ion-fab mini color="danger" (click)="changeLanguage()">
+    <img src="assets/imgs/language.png">
+  </button>
+</ion-fab> -->

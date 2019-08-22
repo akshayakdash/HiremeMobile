@@ -1,0 +1,90 @@
+page-serchjobs {
+    .scroll-content{
+        padding:0px !important;    
+        background: white !important;
+
+    }
+    .background-img{
+        background-image: url(../assets/imgs/employee-dashboard-bg.png);
+        text-align: center;
+        vertical-align: middle;
+        line-height: 104px;
+        color: white;
+        font-size: 18px;
+    }
+ 
+ .segment-toolbar .toolbar-background-md {
+    background: #C3005E;
+    // background: -webkit-gradient(linear, left top, right top, from(#310068), to(#fe005a));
+    // background: linear-gradient(left, #310068, #fe005a);
+}
+    .filters {
+
+        ion-col {
+            text-align: center;
+            font-size: 1.2rem !important;
+            line-height: 1.6rem;
+
+            ion-icon {
+                color: #ccc;
+            }
+
+            &.col-with-arrow {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        p {
+            
+            color: #fff;
+            margin: 0;
+            font-size: 1.2rem;
+            line-height: 1.6rem;
+        }
+
+        .swiper-slide-active {
+            border-bottom: 2px solid white;
+    margin-bottom: 29px;
+
+        }
+    }
+
+    ion-card {
+        position: relative;
+        text-align: center;
+      }
+    
+      .card-title {
+        position: absolute;
+        top: 36%;
+        font-size: 2.0em;
+        width: 100%;
+        font-weight: bold;
+        color: #fff;
+      }
+    
+      .card-subtitle {
+        font-size: 1.0em;
+        position: absolute;
+        top: 52%;
+        width: 100%;
+        color: #fff;
+      }
+      .job-card{
+        margin: 0px !important;
+    
+        width: 100% !important;
+      }
+      .job-card .card-title {
+        font-size: 1.3em;
+        color: #ffffff;
+        background: rgba(0, 0, 0, 0.44);
+        height: 100%;
+        margin-top: -42px;
+        padding-top: 42px;
+        font-weight: 400;
+        text-transform: uppercase;
+    }
+}

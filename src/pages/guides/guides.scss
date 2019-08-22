@@ -1,0 +1,28 @@
+page-guides{
+    .scroll-content {
+        padding: 5px;
+        background: white !important;
+    }   
+    .swiper-pagination-bullet {
+        border-radius: 100%;
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        background: #000;
+        opacity: .2;
+        pointer-events: auto;
+    }
+    .swiper-pagination-bullet-active {
+        background: #F5005D;
+        opacity: 1;
+    }
+    .default-clr{
+        color: #F5005D;
+    }
+    .slide-no{
+        margin-top: -60px;
+    }
+    .slide-img{
+        width: 65%;
+    }
+}

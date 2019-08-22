@@ -1,0 +1,78 @@
+page-verifyemployerprofile {
+    .scroll-content{
+        padding:0px !important;    
+        // margin-top: 98px !important;
+
+    }
+
+ /*card*/
+
+ .job-card-con{
+    margin: 5px;
+    width: calc(100% - 10px);
+}
+.img-sub-size{
+    width: 15px;
+    margin-top: 5px;
+    display: inline;
+    vertical-align: bottom;
+   
+}
+.rating-sec > ul {
+    padding: 0px;
+    margin: 0px;
+    &.rating li {
+      padding: 0px !important;
+      background: none;
+      color: #d84d7f;
+  
+      ion-icon {
+        font-size: 17px;
+      }
+    }
+  }
+  .avatar-top{
+    margin: 16px 16px 8px 0 !important;
+    margin-bottom: auto !important;
+  }
+  ion-avatar img{
+    width: 50px !important;
+    height: 50px !important;
+  }
+  .req-type-color{
+      color:#2AA03F;
+  }
+  .job-card-con .label-md {
+    margin: 5px 8px 5px 0;
+}
+.action-con{
+    border-top: 1px solid #e8e8e8;
+}
+.action-con-inner{
+   padding: 0;
+}
+.action-btn{
+    background: transparent;
+    color: #f5005b;
+}
+
+.action-con-image-size{
+  height: 120px;
+    border: 1px solid #b0a5a5;
+    padding: 2px;
+}
+
+.card-name-geneder-icon{
+    width: 13px;
+    display: inline;
+}
+
+.verified-img{
+    
+    height: 20px !important;
+    width: 20px !important;
+    margin-left: 15px;
+    margin-top: 5px;
+}
+  /***********************************/
+}

@@ -1,0 +1,128 @@
+<!--
+  Generated template for the AgencyregistercandidatePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{labelList.pagetitle18}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div *ngIf="agencyDetails.ProfileVerified" class="register-form" style="height: 100%;">
+    <ion-slides #registercandidate>
+      <ion-slide>
+        <p class="register-label-text">{{labelList.label11}}</p>
+        <div class="register-input-con">
+          <ion-list>
+            <ion-item class="dropdown-text">
+              <ion-label>{{labelList.label14}}</ion-label>
+              <ion-select [(ngModel)]="registerObj.Gender">
+                <ion-option value="2">{{labelList.label15}}</ion-option>
+                <ion-option value="1">{{labelList.label16}}</ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-input type="text" [(ngModel)]="registerObj.FirstName" [placeholder]="labelList.label12"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="text" [(ngModel)]="registerObj.LastName" [placeholder]="labelList.label13"></ion-input>
+            </ion-item>
+            <ion-item class="date-text">
+              <ion-label>{{labelList.label17}}</ion-label>
+              <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="DD-MM-YYYY" min="1900-12-31" max="{{maxDate}}" [(ngModel)]="registerObj.DOB"></ion-datetime>
+            </ion-item>
+          </ion-list>
+          <p class="register-label-text">{{labelList.label18}}</p>
+          <ion-list>
+            <ion-item class="dropdown-text"> 
+              <ion-label>{{labelList.label19}}</ion-label>
+              <ion-select style="max-width: 100%;" [(ngModel)]="registerObj.CountryId" (ionChange)="getActiveCities()">
+                <ion-option value="0">{{labelList.label20}}</ion-option>
+                <ion-option *ngFor="let country of countries" value="{{country.CountryId}}">{{country.CountryName}}</ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item class="dropdown-text">
+              <ion-label>{{labelList.label21}}</ion-label>
+              <ion-select style="max-width: 100%;" [(ngModel)]="registerObj.CityId" (ionChange)="getActiveDistricts()" [disabled]="registerObj.CountryId == 0">
+                <ion-option *ngIf="languageSelected=='en'" value="0">Select City</ion-option>
+                <ion-option *ngIf="languageSelected=='fr'" value="0">Choisissez un ville</ion-option>
+                <ion-option *ngFor="let city of cities" value="{{city.CityId}}">{{city.CityName}}</ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item class="dropdown-text">
+              <ion-label>{{labelList.label23}}</ion-label>
+              <ion-select style="max-width: 100%;" [(ngModel)]="registerObj.DistrictId" [disabled]="registerObj.CityId == 0">
+                <ion-option *ngIf="languageSelected=='en'" value="0">Select District</ion-option>
+                <ion-option *ngIf="languageSelected=='fr'" value="0">Choisissez un quartier</ion-option>
+                <ion-option *ngFor="let district of districts" value="{{district.DistrictId}}">{{district.DistrictName}}</ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-textarea [placeholder]="labelList.label25" [(ngModel)]="registerObj.Address"></ion-textarea>
+            </ion-item>
+          </ion-list>
+          <div class="register-btn-con">
+            <button ion-button round full pr class="login-button" (click)="continue()">{{labelList.label38}}</button>
+          </div>
+        </div>
+      </ion-slide>
+      <ion-slide class="slide2">
+        <p class="register-label-text">{{labelList.label26}}</p>
+        <div class="register-input-con">
+          <ion-list>
+            <ion-item>
+              <ion-input type="Email" [(ngModel)]="registerObj.Email" [placeholder]="labelList.label27"></ion-input>
+            </ion-item>
+            <ion-row>
+              <ion-col col-3>
+                <ion-item class="dropdown-text">
+                  <ion-select [(ngModel)]="registerObj.CountryCode" style="max-width: 100%;padding: 0px 0px 0px 0px;">
+                    <ion-option value="+225">+225</ion-option>
+                  </ion-select>
+                </ion-item>
+              </ion-col>
+              <ion-col col-9>
+                <ion-item>
+                    <ion-input [(ngModel)]="registerObj.PhoneNumber" type="tel" [placeholder]="labelList.label28" spellcheck="false" autocapitalize="off"
+                    maxlength="10" (keypress)="onlyNumber($event)">
+                  </ion-input>
+                
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-12>
+                <ion-row>
+                  <ion-col col-4 *ngFor="let item of images">
+                      <p *ngIf="item.id==0" style="height: 30px;margin: 0;text-align: center;font-size: 12px;color: #f65f6e;">{{labelList.label161}}</p>
+                      <p *ngIf="item.id==1" style="height: 30px;margin: 0;text-align: center;font-size: 12px;color: #f65f6e;">{{labelList.label162}}</p>
+                      <p *ngIf="item.id==2" style="height: 30px;margin: 0;text-align: center;font-size: 12px;color: #f65f6e;">{{labelList.label163}}</p> 
+                    <img class="img-size" [src]="item.file && item.file!=''? item.file:'assets/imgs/upload.png'" (click)="uploadImage(item)"
+                    />
+                    <p style="margin: 0;text-align: center;font-size: 12px;color: #f65f6e;">{{labelList.label30}}</p>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+          </ion-list>
+        </div>
+        <div class="register-btn-con">
+          <button ion-button round full pr class="login-button" (click)="onRegister()">{{labelList.label39}}</button>
+          <p class="back-style" text-center (click)="back()">{{labelList.label120}}</p>
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </div>
+  <div style="background: white;padding: 5px;" *ngIf="!agencyDetails.ProfileVerified">
+    {{labelList.label169}}
+  </div>
+</ion-content>

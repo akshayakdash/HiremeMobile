@@ -1,0 +1,47 @@
+page-export {
+    .scroll-content{
+        padding:0px !important;    
+        // margin-top: 98px !important;
+
+    }
+    .export-card{
+        margin-bottom: 5px;
+    }
+.export-card .gender-img{
+    width: 15px;
+    float: left;
+    margin-top: 3px;
+}
+.export-card .verfied-img{
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    margin-top: 2px;
+}
+.export-card .date-text{
+    float: right;
+    font-size: 13px;
+    font-style: italic;
+    color: #fe005a;
+}
+.membertype{
+    color: #519fc1
+}
+.age{
+    float: right;
+}
+.jobtype{
+    font-weight: 500;
+}
+
+.label-md {
+    margin: 8px 8px 8px 0;
+}
+.phone-img{
+    width: 15px;
+    float: left;
+    margin-top: 3px;
+    margin-right: 2px;
+}
+
+}

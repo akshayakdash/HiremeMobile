@@ -1,0 +1,110 @@
+page-publishedjob{
+    .scroll-content{
+        padding:0px !important;    
+        background: gainsboro;
+
+    }
+
+    .segment-ios .segment-button.segment-activated{
+        background-color: rgb(255, 255, 255) !important;
+       // border-bottom: 1px solid var(--button-color) !important;
+    }
+    .segment-ios .segment-button{
+        border-top: 0px !important;
+        border-color:   #e2e2e2;
+    }
+    .segment-md .segment-button.activated,
+.segment-md .segment-button.segment-activated {
+    border-bottom-color: var( --button-color);
+    border-right-color: var(--border-color);
+    opacity: 1;
+    border-bottom-width: 2px;
+}
+
+.segment .segment-button {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 0;
+    height: auto;
+    background-color: #C3005E;
+    color: #ffffff;
+    padding: 5px 0px 5px 0px;
+       
+    opacity: 1; 
+}
+.segment-option{
+    margin: 5px !important;
+}
+.job-card-con{
+    margin: 5px;
+    width: calc(100% - 10px);
+}
+.img-sub-size{
+  width: 15px;
+  margin-top: 5px;
+  display: inline;
+  vertical-align: bottom;
+ 
+}
+.rating-sec > ul {
+    padding: 0px;
+    margin: 0px;
+    &.rating li {
+      padding: 0px !important;
+      background: none;
+      color: #d84d7f;
+  
+      ion-icon {
+        font-size: 17px;
+      }
+    }
+  }
+  .avatar-top{
+    margin: 16px 16px 8px 0 !important;
+    margin-bottom: auto !important;
+  }
+  ion-avatar img{
+    width: 50px !important;
+    height: 50px !important;
+  }
+  .req-type-color{
+    color:#2AA03F;
+}
+.job-card-con .label-md {
+  margin: 5px 8px 5px 0;
+}
+.action-con{
+  border-top: 1px solid #e8e8e8;
+}
+.action-con-inner{
+ padding: 0;
+}
+.action-btn{
+  background: transparent;
+  color: #f5005b;
+}
+.sub-header-title{
+    font-weight: 500;
+    font-size: 14px;
+    color: #55555f;
+  }
+  .card-name-geneder-icon{
+    width: 13px;
+    display: inline;
+}
+.card-job-item-name{
+  background: #fe005a;
+  text-align: center;
+  padding: 0px 3px 3px 3px;
+  color: white;
+}
+.verified-img{
+    
+  height: 20px !important;
+  width: 20px !important;
+  margin-left: 15px;
+  margin-top: 5px;
+}
+}

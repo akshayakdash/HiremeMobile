@@ -1,0 +1,127 @@
+<!--
+  Generated template for the AgencyverifycandidatePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>{{labelList.pagetitle12}}</ion-title>
+  </ion-navbar>
+  <!-- <ion-toolbar class="segment-toolbar">
+    <ion-row class="filters">
+      <ion-col no-padding col-12>
+        <ion-slides (ionSlideDidChange)="slideChanged()" slidesPerView="3">
+          <ion-slide (click)="filterDataBySelectedCategory(category.JobCategoryId)" *ngFor="let category of categories">
+            <p [class.selected]="selectedCategory?.JobCategoryId === category.JobCategoryId" style="text-transform: uppercase;">{{
+              category.CategoryName }}</p>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar> -->
+</ion-header>
+
+
+<ion-content padding>
+    <ion-row>
+        <ion-col col-12>
+          <div>
+            <ion-list>
+              <div *ngIf="candidates.length > 0">
+                <ion-card class="job-card-con" *ngFor="let item of candidates">
+                  <ion-item class="">
+                    <ion-avatar item-start class="avatar-top">
+                      <img class="img-size" *ngIf="item.ProfilePicUrl == '' && item.Gender == 1" src="assets/imgs/maledefault.svg" />
+                      <img class="img-size" *ngIf="item.ProfilePicUrl == '' && item.Gender == 2" src="assets/imgs/femaledefault.svg" />
+                      <img class="img-size" *ngIf="item.ProfilePicUrl != ''" src="{{item.ProfilePicUrl}}" />
+
+                      <img src="assets/imgs/verified.png" class="verified-img" *ngIf="item.ProfileVerified" alt="">
+                    </ion-avatar>
+                    <div class="card">
+                      
+                      <h4 class="para-overflow-hidden margin-bottom-5">
+                          <img src="assets/imgs/woman.svg" *ngIf="item.Gender == 2" class="card-name-geneder-icon"> 
+                        <img src="assets/imgs/male.svg" *ngIf="item.Gender == 1" class="card-name-geneder-icon"> <span class="margin-right-10 font-weight-500 font-size-16 ">{{item.FirstName}} {{item.LastName}}</span>
+                       
+                       
+                      </h4>
+                      <p class="para-overflow-hidden">
+                          <span>
+                            <img src="assets/imgs/location.svg" class="img-sub-size">
+                          </span>
+                          <span class=""> {{item.Country}}, {{item.City}}, {{item.District}}</span>
+                        </p>
+                     
+                      <p class="para-overflow-hidden">
+                        <span>
+                          <img src="assets/imgs/age.svg" class="img-sub-size">
+                        </span>
+                        <span class=""> {{item.Age}} {{labelList.label164}}</span>
+                      </p>
+                      <p class="para-overflow-hidden">
+                        <span>
+                          <img src="assets/imgs/publishedjob/mail_icon.svg" class="img-sub-size">
+                        </span>
+                        <span class=""> {{item.EmailId}}</span>
+                      </p>
+                      <p class="para-overflow-hidden">
+                        <span>
+                          <img src="assets/imgs/publishedjob/mobile_icon.svg" class="img-sub-size">
+                        </span>
+                        <span class=""> {{item.ContactNo}}</span>
+                      </p>
+                      <p class="para-overflow-hidden">
+                        <span>
+                          {{labelList.label52}}: {{item.CreatedDate}}
+                        </span>
+                      
+                      </p>
+                    </div>
+                  </ion-item>
+                  <ion-row no-padding class="action-con">
+                    <ion-col class="action-con-image margin-auto">
+                      <img src="{{item.IdProofDoc}}" *ngIf="item.IdProofDoc != '' && item.IdProofDoc != null" #idcardfront (click)="presentImage(idcardfront)" class="action-con-image-size">
+                      <img src="assets/imgs/noidcard.jpg" *ngIf="item.IdProofDoc == '' || item.IdProofDoc == null" class="action-con-image-size">
+                      
+                    </ion-col>
+                   
+                    <ion-col text-right class="action-con-image margin-auto">
+                      <img src="{{item.IdProofDoc1}}" *ngIf="item.IdProofDoc1 != '' && item.IdProofDoc1 != null" #idcardback (click)="presentImage(idcardback)" class="action-con-image-size">
+                      <img src="assets/imgs/noidcard.jpg" *ngIf="item.IdProofDoc1 == '' || item.IdProofDoc1 == null" class="action-con-image-size">
+                    </ion-col>
+                  </ion-row>
+                  <ion-row no-padding class="action-con">
+                      <ion-col class="action-con-inner">
+                        <button ion-button clear small  icon-start class="action-btn" *ngIf="!item.ProfileVerified" (click)="verify(item)">
+                            <ion-icon name="checkmark"></ion-icon>
+                            {{labelList.label96}}
+                        </button>
+                      </ion-col>
+                     
+                      <!-- <ion-col text-right class="action-con-inner">
+                        <button ion-button clear small  icon-start class="action-btn" (click)="gotoDetails()">
+                            <ion-icon name="information-circle" ></ion-icon>
+                          Detail
+                        </button>
+                      </ion-col> -->
+                    </ion-row>
+                </ion-card>
+              </div>
+            </ion-list>
+      
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col col-12 text-center *ngIf="candidates.length == 0">
+              <img src="assets/imgs/no-record-found.png" >
+          </ion-col>
+      </ion-row>
+  
+     
+  </ion-content>
